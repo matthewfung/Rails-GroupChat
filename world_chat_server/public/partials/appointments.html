@@ -1,0 +1,19 @@
+<div ng-controller="IndexController">
+    <h1>Doctor's Appointments</h1>
+    Search <input type="text" placeholder="Search" ng-model="search">
+    <table>
+        <thead>
+            <td>Date</td>
+            <td>Time</td>
+            <td>Patient Name</td>
+            <td>Complain</td>
+        </thead>
+        <tr ng-repeat="appointment in appointments | filter: search | orderBy: 'date' : 'time'">
+        	<td>{{appointment.date | date: 'longDate' }}</td>
+        	<td>{{appointment.time | date: 'shortTime'}}</td>
+        	<td>{{appointment.name}}</td>
+        	<td>{{appointment.complain}} <button ng-click= "cancelAppointment(appointment.date, appointment.name, appointment.complain)" ng-if = "appointment.name == appt.name">Cancel</button></td>
+        </tr>
+    </table>
+    <button ng-click="addAppointment()">Add New Appointment</button>    
+</div>

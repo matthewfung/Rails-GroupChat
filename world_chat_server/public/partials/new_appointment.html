@@ -1,0 +1,9 @@
+<div ng-controller="IndexController">
+	<h1>New Appointment</h1>
+	Date:
+	<input type="date" ng-model="appt.date">
+	Complain:
+	<textarea ng-model="appt.complain"></textarea>
+	<button ng-click="submitAppointment()">Add Appointment</button>
+	<div ng-bind = "message"></div>
+</div>
